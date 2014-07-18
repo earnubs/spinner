@@ -9,7 +9,7 @@
 <canvas id="spinner" width="100" height="100"></canvas>
 <button id=play>play</button>
 <button id=stop>stop</button>
-<script src="spin.js"></script>
+<script src="dist/spin.min.js"></script>
 <script src="http://dat-gui.googlecode.com/git/build/dat.gui.js"></script>
 <script>
 
@@ -34,8 +34,8 @@
 
   var gui = new dat.GUI();
   gui.add(my_spin, 'speed', 0.1, 5);
-  gui.add(my_spin, 'segment_angle', 1, 45);
-  gui.add(my_spin, 'segment_gap_angle', 0, 45);
+  gui.add(my_spin, 'segment_angle', 1, 350);
+  gui.add(my_spin, 'segment_gap_angle', 0, 180);
   gui.add(my_spin, 'segment_radius', 10, 100);
   gui.add(my_spin, 'segment_depth', 2, 100);
   gui.addColor(my_spin, 'foreground');

@@ -1,8 +1,9 @@
 var gulp = require('gulp');
 var jshint = require('gulp-jshint');
-var mocha = require('gulp-mocha');
+var uglify = require('gulp-uglify');
+var rename = require('gulp-rename');
 
-gulp.task('default', ['lint']);
+gulp.task('default', ['lint', 'compress']);
 
 gulp.task('lint', function() {
     return gulp.src('./*.js')
@@ -12,4 +13,16 @@ gulp.task('lint', function() {
 
 gulp.task('watch', function() {
   gulp.watch('./*.js', ['lint']);
+  gulp.watch('./lib/*.js', ['uglify']);
+});
+
+gulp.task('compress', function() {
+  gulp.src('lib/*.js')
+    .pipe(uglify({ outSourceMap: true }))
+    .pipe(rename(function (path) {
+        if(path.extname === '.js') {
+            path.basename += '.min';
+        }
+    }))
+    .pipe(gulp.dest('./dist'));
 });
