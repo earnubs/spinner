@@ -7,39 +7,10 @@
   }
 </style>
 <canvas id="spinner" width="100" height="100"></canvas>
-<button id=play>play</button>
-<button id=stop>stop</button>
 <script src="dist/spin.min.js"></script>
-<script src="http://dat-gui.googlecode.com/git/build/dat.gui.js"></script>
 <script>
 
-  var my_spin = new Spinner({
-    canvas_id: 'spinner',
-    rotation_angle: 30
-  });
-  my_spin.play();
-
-  var play = document.getElementById('play');
-  var stop = document.getElementById('stop');
-
-  play.addEventListener('click', function (e) {
-    e.preventDefault();
-    my_spin.play();
-  });
-
-  stop.addEventListener('click', function (e) {
-    e.preventDefault();
-    my_spin.stop();
-  });
-
-  var gui = new dat.GUI();
-  gui.add(my_spin, 'speed', 0.1, 5);
-  gui.add(my_spin, 'segment_angle', 1, 350);
-  gui.add(my_spin, 'segment_gap_angle', 0, 180);
-  gui.add(my_spin, 'segment_radius', 10, 100);
-  gui.add(my_spin, 'segment_depth', 2, 100);
-  gui.remember(my_spin);
-
-
-
+  new Spinner({
+    canvas_id: 'spinner'
+    }).play();
   </script>
