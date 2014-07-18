@@ -13,7 +13,7 @@ gulp.task('lint', function() {
 
 gulp.task('watch', function() {
   gulp.watch('./*.js', ['lint']);
-  gulp.watch('./lib/*.js', ['uglify']);
+  gulp.watch('./lib/*.js', ['compress']);
 });
 
 gulp.task('compress', function() {
