@@ -1,4 +1,4 @@
 Spinner
 =======
 
-Customisable <canvas> based spinner for when you need to spin.
+Customisable ```<canvas>``` based spinner that allows changing props like speed on the fly.
