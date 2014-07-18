@@ -32,12 +32,44 @@
     my_spin.stop();
   });
 
-  var gui = new dat.GUI();
+  var data = {
+    "preset": "Default",
+    "remembered": {
+      "Default": {
+        "0": {
+          "speed": 1,
+          "segment_angle": 30,
+          "segment_gap_angle": 0,
+          "segment_radius": 33,
+          "segment_depth": 2,
+          "foreground": [ 221, 72, 20 ],
+          "background": [ 255, 255, 255 ]
+        }
+      },
+      "Ticks": {
+        "0": {
+          "speed": 1,
+          "segment_angle": 1,
+          "segment_gap_angle": 4,
+          "segment_radius": 40,
+          "segment_depth": 7,
+          "foreground": [ 45, 45, 45 ],
+          "background": [ 255, 255, 255 ]
+        }
+      }
+    },
+    "closed": false,
+    "folders": {}
+  };
+
+  var gui = new dat.GUI({
+    load: data
+    });
   gui.add(my_spin, 'speed', 0.1, 5);
   gui.add(my_spin, 'segment_angle', 1, 350);
   gui.add(my_spin, 'segment_gap_angle', 0, 180);
-  gui.add(my_spin, 'segment_radius', 10, 100);
-  gui.add(my_spin, 'segment_depth', 2, 100);
+  gui.add(my_spin, 'segment_radius', 10, 50);
+  gui.add(my_spin, 'segment_depth', 1, 100);
   gui.addColor(my_spin, 'foreground');
   gui.addColor(my_spin, 'background');
   gui.remember(my_spin);
