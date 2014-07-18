@@ -1,14 +1,18 @@
 <!doctype html>
+<meta charset=utf8>
 <title>spin</title>
 <style>
-  canvas {
+  body {
+    background-color:#f6f6f6;
   }
 </style>
-<canvas id="spinner" width="50" height="50"></canvas>
+<canvas id="spinner" width="100" height="100"></canvas>
 <button id=play>play</button>
 <button id=stop>stop</button>
 <script src="spin.js"></script>
+<script src="http://dat-gui.googlecode.com/git/build/dat.gui.js"></script>
 <script>
+
   var my_spin = new Spinner({
     canvas_id: 'spinner',
     rotation_angle: 30
@@ -27,4 +31,17 @@
     e.preventDefault();
     my_spin.stop();
   });
+
+  var gui = new dat.GUI();
+  gui.add(my_spin, 'speed', 0.1, 5);
+  gui.add(my_spin, 'segment_angle', 1, 45);
+  gui.add(my_spin, 'segment_gap_angle', 0, 45);
+  gui.add(my_spin, 'segment_radius', 10, 100);
+  gui.add(my_spin, 'segment_depth', 2, 100);
+  gui.addColor(my_spin, 'foreground');
+  gui.addColor(my_spin, 'background');
+  gui.remember(my_spin);
+
+
+
   </script>
