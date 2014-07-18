@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+<meta charset=utf8>
+<title>spin</title>
+<style>
+  body {
+    background-color:#f6f6f6;
+    padding:10%;
+  }
+</style>
+</head>
+<body>
+</body>
+  <script src="dist/spin.min.js"></script>
+  <script>
+    /**
+    var my_spin = new Spinner({
+      canvas_id: 'spinner',
+      rotation_angle: 30
+      });
+      my_spin.play();
+      **/
+
+      var WIDTH = 100;
+
+      for (var i = 100; i--;) {
+        var id = 'cvs-' + i;
+        var canvas = createCanvas(id, WIDTH)
+        document.body.appendChild(canvas);
+        new Spinner({
+          canvas_id: id,
+          foreground: [
+          (Math.random() * 255) | 0,
+          (Math.random() * 255) | 0,
+          (Math.random() * 255) | 0,
+          ],
+          speed: Math.random() * 2,
+          segment_depth: 1
+        }).play();
+      }
+
+      function createCanvas(id, width) {
+        var canvas = document.createElement("canvas");
+        canvas.setAttribute('width', width);
+        canvas.setAttribute('height', width);
+        canvas.id = id;
+
+        return canvas;
+      }
+
+
+    </script>
+  </html>
